@@ -5,14 +5,14 @@ import java.util.List;
 
 import persistencia.Persistencia;
 
-public class Xian {
+public class Tienda {
 	private Inventario inventario;
 	private List<Venta> ventas;
 	private List<Usuario> usuarios;
 	private Persistencia persistencia;
 	
 	@SuppressWarnings("unchecked")
-	public Xian() {
+	public Tienda() {
 		this.persistencia = new Persistencia();
 		// Inventario — objeto único
 		this.inventario = (Inventario) persistencia.leer("inventario.bin");
@@ -28,7 +28,8 @@ public class Xian {
 	}
 	
 	public void registrarProducto(Producto producto) {
-		inventario.agregarProducto(producto);
+		inventario.agregarProducto(producto)
+		escribirInventario();
 	}
 	public Producto buscarProducto(String codigoBarras) {
 		return inventario.buscarProducto(codigoBarras);
@@ -52,4 +53,8 @@ public class Xian {
 		persistencia.escribir(inventario, "inventario.bin");
 	}
 	
+	public void registrarUsuario(Usuario usuario) {
+	    usuarios.add(usuario);
+	    persistencia.escribir(usuarios, "usuarios.bin");
+	}
 }
