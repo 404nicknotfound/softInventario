@@ -28,7 +28,7 @@ public class Tienda {
 	}
 	
 	public void registrarProducto(Producto producto) {
-		inventario.agregarProducto(producto)
+		inventario.agregarProducto(producto);
 		escribirInventario();
 	}
 	public Producto buscarProducto(String codigoBarras) {
