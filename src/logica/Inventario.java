@@ -43,4 +43,13 @@ public class Inventario implements Serializable{
 		return productosBajos;
 	}
 
+	public List<Producto> buscarPorNombre(String nombre) {
+	    List<Producto> resultado = new ArrayList<>();
+	    for (Producto p : inventarioProductos.values()) {
+	        if (p.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
+	            resultado.add(p);
+	        }
+	    }
+	    return resultado;
+	}
 }

@@ -34,6 +34,11 @@ public class Tienda {
 	public Producto buscarProducto(String codigoBarras) {
 		return inventario.buscarProducto(codigoBarras);
 	}
+	
+	public List<Producto> buscarProductoPorNombre(String nombre) {
+	    return inventario.buscarPorNombre(nombre);
+	}
+	
 	public Venta iniciarVenta(double tasaImpuesto) {
 		return new Venta(tasaImpuesto);
 	}
@@ -57,4 +62,40 @@ public class Tienda {
 	    usuarios.add(usuario);
 	    persistencia.escribir(usuarios, "usuarios.bin");
 	}
+
+	public Inventario getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+
+	public List<Venta> getVentas() {
+		return ventas;
+	}
+
+	public void setVentas(List<Venta> ventas) {
+		this.ventas = ventas;
+	}
+
+	public List<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public Persistencia getPersistencia() {
+		return persistencia;
+	}
+
+	public void setPersistencia(Persistencia persistencia) {
+		this.persistencia = persistencia;
+	}
+	
+	
+	
+	
 }
