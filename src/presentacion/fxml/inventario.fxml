@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="presentacion.controllers.InventarioController"
+            prefWidth="900" prefHeight="600">
+
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10; -fx-background-color: #2c3e50;">
+            <Button text="← Ventas" onAction="#handleVentas"/>
+            <Label text="Inventario"
+                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Historial" onAction="#handleHistorial"/>
+            <Button text="Cerrar Sesión" onAction="#handleCerrarSesion"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tablaProductos" style="-fx-padding: 10;">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="130"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="160"/>
+                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90"/>
+                <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="100"/>
+                <TableColumn fx:id="colMarca" text="Marca" prefWidth="100"/>
+                <TableColumn fx:id="colStock" text="Stock" prefWidth="70"/>
+                <TableColumn fx:id="colStockMin" text="Stock Mín." prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <VBox spacing="8" style="-fx-padding: 15; -fx-background-color: #f4f4f4;">
+            <HBox spacing="8">
+                <TextField fx:id="txtCodigo" promptText="Código de barras" prefWidth="140"/>
+                <TextField fx:id="txtNombre" promptText="Nombre" prefWidth="140"/>
+                <TextField fx:id="txtPrecio" promptText="Precio" prefWidth="90"/>
+                <TextField fx:id="txtCategoria" promptText="Categoría" prefWidth="100"/>
+                <TextField fx:id="txtMarca" promptText="Marca" prefWidth="100"/>
+                <TextField fx:id="txtStock" promptText="Stock" prefWidth="70"/>
+                <TextField fx:id="txtStockMin" promptText="Stock Mín." prefWidth="80"/>
+            </HBox>
+            <HBox spacing="10">
+                <Button text="Agregar" onAction="#handleAgregar"
+                        style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+                <Button text="Actualizar" onAction="#handleActualizar"
+                        style="-fx-background-color: #2980b9; -fx-text-fill: white;"/>
+                <Button text="Eliminar" onAction="#handleEliminar"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+                <Button text="Limpiar" onAction="#handleLimpiar"/>
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>

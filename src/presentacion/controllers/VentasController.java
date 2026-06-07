@@ -196,11 +196,27 @@ public class VentasController {
 
     @FXML
     public void handleInventario() {
-        // TODO: implementar cuando inventario.fxml esté listo
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/presentacion/fxml/inventario.fxml"));
+            Parent root = loader.load();
+            InventarioController controller = loader.getController();
+            controller.setTienda(tienda);
+            controller.setStage(stage);
+            stage.setScene(new Scene(root));
+        } catch (Exception e) { e.printStackTrace(); }
     }
 
     @FXML
     public void handleHistorial() {
-        // TODO: implementar cuando historial.fxml esté listo
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/presentacion/fxml/historial.fxml"));
+            Parent root = loader.load();
+            HistorialController controller = loader.getController();
+            controller.setTienda(tienda);
+            controller.setStage(stage);
+            stage.setScene(new Scene(root));
+        } catch (Exception e) { e.printStackTrace(); }
     }
 }
